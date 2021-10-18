@@ -9,7 +9,7 @@ const manager = `\nWhat would you like to do (Please enter one of the options be
 let restartManager = true;
 // These variables (like manager) will not change:
 const options = ["TASKS", "NEW", "REMOVE", "CLOSE"];
-const close = `Thank you for using Task Manager!`;
+const closeAlert = `Thank you for using Task Manager!`;
 const newTaskPrompt = `Please enter the new task:`;
 // These variables will change:
 let userInput;
@@ -17,12 +17,14 @@ let newTaskAlert;
 let taskAdded;
 let removeTaskPrompt;
 let taskRemoved;
-let tasks = [`Charge MacBook`, `Master JavaScript`];
-let taskNumber = 1;
+let tasks = [
+    {1: `Charge MacBook`}, 
+    {2: `Master JavaScript`}
+];
 let removeTask = `\nPlease enter a number to remove:
-$(taskNumber): $(taskOne)
-$(taskNumber): $(taskTwo\n`;
-console.log(removeTask);
+$(tasks[0]),
+$(tasks[1])\n`
+
 // These variables also will not change:
 const taskAddedAlert = `"$(taskAdded)" has been added!`
 const taskRemovedAlert = `"$(taskRemoved) has been removed`
@@ -34,14 +36,14 @@ prompt(manager);
 
 // This begins the code for this little Task Manager:
 userInput = prompt(manager);
-if (userInput.toUpperCase == "TASKS") {
+if (userInput == "TASKS") {
     alert(tasks);
-} else if (userInput.toUpperCase == "NEW") {
+} else if (userInput == "NEW") {
     prompt(newTaskPrompt);
-} else if (userInput.toUpperCase == "REMOVE") {
+} else if (userInput == "REMOVE") {
     prompt(removeTask);
-} else if (userInput.toUpperCase == "CLOSE") {
-    alert(close);
+} else if (userInput == "CLOSE") {
+    alert(closeAlert);
 } else {
     prompt(manager);
 }
