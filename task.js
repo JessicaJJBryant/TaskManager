@@ -15,26 +15,23 @@ const newTaskPrompt = `Please enter the new task:`;
 let userInput;
 let newTaskAlert;
 let taskAdded;
+let taskNumberOne = 1;
+let taskNumberTwo = 2;
 let removeTaskPrompt;
 let taskRemoved;
-let tasks = [
-    {1: `Charge MacBook`}, 
-    {2: `Master JavaScript`}
+let tasks = [ 
+    `Charge MacBook`,
+    `Master JavaScript`
 ];
 let removeTask = `\nPlease enter a number to remove:
-$(tasks[0]),
-$(tasks[1])\n`
-
+${taskNumberOne}: ${tasks[0]}
+${taskNumberTwo}: ${tasks[1]}\n`
+console.log(removeTask);
 // These variables also will not change:
-const taskAddedAlert = `"$(taskAdded)" has been added!`
-const taskRemovedAlert = `"$(taskRemoved) has been removed`
-// To make the task number displayed to be one less than the previous (and nothing if there are no tasks/task numbers)
-// taskNumber--
+const taskAddedAlert = `"${taskAdded}" has been added!`
+const taskRemovedAlert = `"${taskRemoved} has been removed`
 
-// Beginning prompt--this prompts the user to begin using the Task Manager
-prompt(manager);
-
-// This begins the code for this little Task Manager:
+// Beginning prompt--this prompts the user to begin using the Task Manager and begins the code for this little Task Manager:
 userInput = prompt(manager);
 if (userInput == "TASKS") {
     alert(tasks);
