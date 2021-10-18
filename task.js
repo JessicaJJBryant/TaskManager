@@ -33,16 +33,23 @@ const taskRemovedAlert = `"${taskRemoved} has been removed`
 
 // Beginning prompt--this prompts the user to begin using the Task Manager and begins the code for this little Task Manager:
 userInput = prompt(manager);
-if (userInput == "TASKS") {
+while(true) {
+if (userInput.toUpperCase() == "TASKS") {
     alert(`${tasks[0]}\n${tasks[1]}`);
-} else if (userInput == "NEW") {
+    break;
+} else if (userInput.toUpperCase() == "NEW") {
     prompt(newTaskPrompt);
-} else if (userInput == "REMOVE") {
+    break;
+} else if (userInput.toUpperCase() == "REMOVE") {
     prompt(removeTask);
-} else if (userInput == "CLOSE") {
+    break;
+} else if (userInput.toUpperCase() == "CLOSE") {
     alert(closeAlert);
+    restartManager = false;
+    break;
 } else {
-    prompt(manager);
+    break;
+}
 }
 
 
