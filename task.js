@@ -56,7 +56,7 @@ while (userInput !== `CLOSE`){
      // Adds the user's entry as a new item at the end of the tasks array (we won't see this happening, but it runs in the background and adds whatever is added in the newTask prompt to the tasks array):
     tasks.push(newTask);
     }
-    
+
     // Checks if user entered REMOVE (UPPERCASE or lowercase):
     if (userInput === `REMOVE`) {
         // Using a for loop to concatenate each task/item in the current tasks array to the showTasks string variable. Also, sets/displays a number for each task. i=0 because the first index is 0 and what's inside will be run once to store whatever is at the first index; then i++ incremented to add on the next index and if i < tasks.length it will display both and loop again to run again the i++ and if i < tasks.length it will keep looping:
@@ -66,6 +66,13 @@ while (userInput !== `CLOSE`){
         }
         // Prompts the user to enter a number of the task to be removed and stores their response to the num variable. Remember though that the numbers that they put in are not the actual numbers of the array because those start at the index of 0. Therefore we need to decrement to subtract 1 from the number they enter (we could do num-- on the line under num = prompt, but it's easier to do the -1 on the same line). Just like with ParseInt, JavaScript will attempt to convert a string into a number when you try to subtract from it. So ParseInt is not necessary here. This will also take care of anything entered that isn't a number, so it will end up with a NaN (Not a Number):
         num = prompt(`Please enter a number to remove:\n${showTasks}`) - 1;
+
+        // This while loop is error handling to confirm that the user has entered a valid response. The first is for decimals, the second is for negatives, the third is for anything greater than the number of tasks there are, and the last is if num is not a number. If any of them are true, the whole thing is true and the alert error message will run that they've not entered a valid entry. Then when they click ok, the remove prompt will run again.  
+        while(Math.floor(num) !== num || num < 0 || num >= tasks.length || !num) {
+            alert(`Not a valid entry`);
+            num = prompt(`Please enter a number to remove:\n${showTasks}`) - 1;
+        }
+
         // we use splice here to remove whatever the user wanted removed (num) and the 1 stands for the only one they can remove each time (splice allows for more than one, but this Task Manager does not). We set this to the removed variable to store it (in an array) so we can put it in the following alert:
         removed = tasks.splice(num, 1);
         // This alert must have removed[0] because the splice method returns the value to an array (removed array in this case). So we need to do the index 0 to have the removed item to be displayed instead of the array with brackets.
