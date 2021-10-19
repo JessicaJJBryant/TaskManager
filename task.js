@@ -1,6 +1,7 @@
 // TASK MANAGER PROJECT
 
-const manager = `\nWhat would you like to do (Please enter one of the options below):
+const manager = `TASK MANAGER
+\nWhat would you like to do (Please enter one of the options below):
 "TASKS" - Display All Tasks
 "NEW" - Add A New Task
 "REMOVE" - Remove A Task
