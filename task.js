@@ -47,11 +47,16 @@ while (userInput !== `CLOSE`){
     if (userInput === `NEW`){
         // Prompts the user to enter a new task and stores their response:
         newTask = prompt(`Please enter the new task:`);
-        // Alerts the user that their new task has been added:
-        alert(`"${newTask}" has been added!`);
-        // Adds the user's entry as a new item at the end of the tasks array (we won't see this happening, but it runs in the background and adds whatever is added in the newTask prompt to the tasks array):
-        tasks.push(newTask);
+        // This while loop will continue to loop and prompt until they enter at least something. (NOTE: if the user does not type anything and just clicks OK, then the value returned is an empty string)
+        while(newTask === ``){
+            newTask = prompt(`Please enter the new task:`);
+        }
+    // Alerts the user that their new task has been added:
+    alert(`"${newTask}" has been added!`);
+     // Adds the user's entry as a new item at the end of the tasks array (we won't see this happening, but it runs in the background and adds whatever is added in the newTask prompt to the tasks array):
+    tasks.push(newTask);
     }
+    
     // Checks if user entered REMOVE (UPPERCASE or lowercase):
     if (userInput === `REMOVE`) {
         // Using a for loop to concatenate each task/item in the current tasks array to the showTasks string variable. Also, sets/displays a number for each task. i=0 because the first index is 0 and what's inside will be run once to store whatever is at the first index; then i++ incremented to add on the next index and if i < tasks.length it will display both and loop again to run again the i++ and if i < tasks.length it will keep looping:
