@@ -17,39 +17,41 @@ let newTaskAlert;
 let taskAdded;
 let taskNumberOne = 1;
 let taskNumberTwo = 2;
-let removeTaskPrompt;
 let taskRemoved;
 let tasks = [ 
     `Charge MacBook`,
     `Master JavaScript`
 ];
-let removeTask = `\nPlease enter a number to remove:
+let removeTaskPrompt = `\nPlease enter a number to remove:
 ${taskNumberOne}: ${tasks[0]}
-${taskNumberTwo}: ${tasks[1]}\n`
-console.log(removeTask);
+${taskNumberTwo}: ${tasks[1]}\n`;
+
 // These variables also will not change:
 const taskAddedAlert = `"${taskAdded}" has been added!`
 const taskRemovedAlert = `"${taskRemoved} has been removed`
 
 // Beginning prompt--this prompts the user to begin using the Task Manager and begins the code for this little Task Manager:
-userInput = prompt(manager);
+
 while(true) {
-if (userInput.toUpperCase() == "TASKS") {
-    alert(`${tasks[0]}\n${tasks[1]}`);
-    break;
-} else if (userInput.toUpperCase() == "NEW") {
-    prompt(newTaskPrompt);
-    break;
-} else if (userInput.toUpperCase() == "REMOVE") {
-    prompt(removeTask);
-    break;
-} else if (userInput.toUpperCase() == "CLOSE") {
-    alert(closeAlert);
-    restartManager = false;
-    break;
-} else {
-    break;
-}
+    userInput = prompt(manager);
+    if (userInput.toUpperCase() == "TASKS") {
+        alert(`${tasks[0]}\n${tasks[1]}`);
+        restartManager = true;
+    } else if (userInput.toUpperCase() == "NEW") {
+        prompt(newTaskPrompt);
+        restartManager = true;
+        break;
+    } else if (userInput.toUpperCase() == "REMOVE") {
+        prompt(removeTaskPrompt);
+        restartManager = true;
+        break;
+    } else if (userInput.toUpperCase() == "CLOSE") {
+        alert(closeAlert);
+        break;
+        restartManager = false;
+    } else {
+        break;
+    }
 }
 
 
