@@ -17,6 +17,8 @@ const tasks = [
 ];
 // For displaying tasks to the user:
 let showTasks = ``;
+// For setting the newTasks variable:
+let newTasks = ``;
 
 //Displays the menu/manager for the user to select an option. Also, sets the user's response to the userInput variable.
 let userInput = prompt(manager);
@@ -32,9 +34,19 @@ while (userInput !== `CLOSE`){
         }
         // displays the current tasks to the user:
         alert(showTasks);
-        // Sets the value of the showTasks string variable back to an empty string
+        // Sets the value of the showTasks string variable BACK to an empty string so it's ready for the next time we go into this loop:
         showTasks = "";
     }
+    // Checks if user entered NEW:
+    if (userInput === `NEW`){
+        // Prompts the user to enter a new task and stores their response:
+        newTask = prompt(`Please enter the new task:`);
+        // Alerts the user that their new task has been added:
+        alert(`"${newTask}" has been added!`);
+        // Adds the user's entry as a new item at the end of the tasks array (we won't see this happening, but it runs in the background and adds whatever is added in the newTask prompt to the tasks array):
+        tasks.push(newTask);
+    }
+
     userInput = prompt(manager);
 }
 // if the user DOES enter CLOSE, then it will move on out of the loop to this:
