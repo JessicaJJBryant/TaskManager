@@ -9,11 +9,32 @@ What would you like to do (Please enter one of the options below):
 "REMOVE" - Remove A Task
 "CLOSE" - Close The Task Manager
 `;
+
+// We could set this as a let variable, but since we will not be redeclaring (only pushing or popping array items), we can make this a const. This is for storing the tasks.
+const tasks = [ 
+    `Charge MacBook`,
+    `Master JavaScript`
+];
+// For displaying tasks to the user:
+let showTasks = ``;
+
 //Displays the menu/manager for the user to select an option. Also, sets the user's response to the userInput variable.
 let userInput = prompt(manager);
 
 // Loops and continues to display the menu/manager until the user ends/closes the TASK MANAGER (AKA until the user enters CLOSE). This loops while (true)--while userInput is anything other than `CLOSE`
 while (userInput !== `CLOSE`){
+    if (userInput === `TASKS`) {
+        // alert(`Charge MacBook\nMaster JavaScript`); Using the array and a for of loop so it can be changed and each will display as new tasks are added and removed. A for of loop will iterate through each item of the array and concatenates each to the showTasks string variable. Matt said we could have also used the join method instead of the for of loop that follows:
+        for (task of tasks){
+            // alert(task); this would alert us with each one after another
+            // showTasks = showTasks + `${task}\n` this would alert us with the first task and then the second task. But we have a shorthand:
+            showTasks += `${task}\n`;
+        }
+        // displays the current tasks to the user:
+        alert(showTasks);
+        // Sets the value of the showTasks string variable back to an empty string
+        showTasks = "";
+    }
     userInput = prompt(manager);
 }
 // if the user DOES enter CLOSE, then it will move on out of the loop to this:
@@ -70,14 +91,3 @@ alert(`Thank you for using Task Manager!`);
 //         break;
 //     }
 // }
-
-
-
-
-
-
-
-
-
-
-
