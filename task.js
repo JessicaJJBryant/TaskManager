@@ -25,11 +25,12 @@ let num;
 // For storing the value of the removed task:
 let removed;
 
-//Displays the menu/manager for the user to select an option. Also, sets the user's response to the userInput variable.
-let userInput = prompt(manager);
+//Displays the menu/manager for the user to select an option. Also, sets the user's response to the userInput variable. The .toUpperCase() method will also change their responses to all UPPERCASE. We could put the toUpperCase at each userInput, but this is easier (less places).
+let userInput = prompt(manager).toUpperCase();
 
-// Loops and continues to display the menu/manager until the user ends/closes the TASK MANAGER (AKA until the user enters CLOSE). This loops while (true)--while userInput is anything other than `CLOSE`
+// Loops and continues to display the menu/manager until the user ends/closes the TASK MANAGER (AKA until the user enters CLOSE (UPPERCASE or lowercase)). This loops while (true)--while userInput is anything other than `CLOSE`
 while (userInput !== `CLOSE`){
+    // Checks if user entered TASKS (UPPERCASE or lowercase)
     if (userInput === `TASKS`) {
         // alert(`Charge MacBook\nMaster JavaScript`); Using the array and a for of loop so it can be changed and each will display as new tasks are added and removed. A for of loop will iterate through each item of the array and concatenates each to the showTasks string variable. Matt said we could have also used the join method instead of the for of loop that follows:
         for (task of tasks){
@@ -42,7 +43,7 @@ while (userInput !== `CLOSE`){
         // Sets the value of the showTasks string variable BACK to an empty string so it's ready for the next time we go into this loop:
         showTasks = "";
     }
-    // Checks if user entered NEW:
+    // Checks if user entered NEW (UPPERCASE or lowercase):
     if (userInput === `NEW`){
         // Prompts the user to enter a new task and stores their response:
         newTask = prompt(`Please enter the new task:`);
@@ -51,7 +52,7 @@ while (userInput !== `CLOSE`){
         // Adds the user's entry as a new item at the end of the tasks array (we won't see this happening, but it runs in the background and adds whatever is added in the newTask prompt to the tasks array):
         tasks.push(newTask);
     }
-    // Checks if user entered REMOVE:
+    // Checks if user entered REMOVE (UPPERCASE or lowercase):
     if (userInput === `REMOVE`) {
         // Using a for loop to concatenate each task/item in the current tasks array to the showTasks string variable. Also, sets/displays a number for each task. i=0 because the first index is 0 and what's inside will be run once to store whatever is at the first index; then i++ incremented to add on the next index and if i < tasks.length it will display both and loop again to run again the i++ and if i < tasks.length it will keep looping:
         for(i = 0; i < tasks.length; i++) {
@@ -67,10 +68,10 @@ while (userInput !== `CLOSE`){
         // Sets the value of the showTasks string variable back to an empty string:
         showTasks = ``;
     }
-    // Displays the menu again:
-    userInput = prompt(manager);
+    // Displays the menu again (and also changes it to UPPERCASE):
+    userInput = prompt(manager).toUpperCase();
 }
-// if the user DOES enter CLOSE, then it will move on out of the loop to this:
+// if the user DOES enter CLOSE (UPPERCASE or lowercase), then it will move on out of the loop to this:
 // Alerts the user that they have closed the program:
 alert(`Thank you for using Task Manager!`);
 
