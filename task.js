@@ -1,11 +1,17 @@
 // TASK MANAGER PROJECT
 
+//Using a Template Literal because it recognizes line breaks.
 const manager = `TASK MANAGER
-\nWhat would you like to do (Please enter one of the options below):
+
+What would you like to do (Please enter one of the options below):
 "TASKS" - Display All Tasks
 "NEW" - Add A New Task
 "REMOVE" - Remove A Task
-"CLOSE" - Close The Task Manager\n`;
+"CLOSE" - Close The Task Manager
+`;
+//Displays the menu/manager for the user to select an option. Also, sets the user's response to the userInput variable.
+let userInput = prompt(manager);
+
 // To restart Task Manager
 let restartManager = true;
 // These variables (like manager) will not change:
@@ -13,7 +19,7 @@ const options = ["TASKS", "NEW", "REMOVE", "CLOSE"];
 const closeAlert = `Thank you for using Task Manager!`;
 const newTaskPrompt = `Please enter the new task:`;
 // These variables will change:
-let userInput;
+// let userInput; moved up above during code along
 let newTaskAlert;
 let taskAdded;
 let taskNumberOne = 1;
